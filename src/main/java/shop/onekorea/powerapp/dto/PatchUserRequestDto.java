@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 public class PatchUserRequestDto {
 
     private String nickname;
+//    private String userid;
     private String profile;
 
 }

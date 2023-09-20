@@ -8,8 +8,8 @@ Function doValidateUserName() { //
       return "User Name cannot be empty";
     } else if (value.length < 3) {
       return "User Name must be at least 4 characters long";
-    } else if (!isAlphanumeric(value)) {
-      return "User Name must be alphabet or number";
+    // } else if (!isAlphanumeric(value)) {
+    //   return "User Name must be alphabet or number";
     } else {
       return null;
     }

@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:powerappmenu/controller/PostController.dart';
 import 'package:powerappmenu/size.dart';
+import 'package:powerappmenu/util/Utils.dart';
 import 'package:powerappmenu/view/pages/post/WritePage.dart';
 import 'package:powerappmenu/view/pages/user/LoginPage.dart';
 import 'package:powerappmenu/view/pages/user/UserInfo.dart';
@@ -11,6 +15,13 @@ import 'DetailPage.dart';
 
 class HomePage extends StatelessWidget {
   // const HomePage({super.key});
+
+  /// 2023.08.15 Added. 현재 폴더 및 현재 파일명, 현재 클래스명 얻기.
+  // Future<String> getDir() async {
+  //   final Directory currentDir2 = await getTemporaryDirectory(); /// 안 됨.
+  //   final Directory currentDir1 = await getApplicationDocumentsDirectory(); /// 안 됨.
+  // }
+  // Directory currentdir = Utils.getCurrentDirectory() as Directory;
 
   /// 2023.08.14 Conclusion. Navigatior 제어하기 위해서는,
   /// 상단에서 "Scaffold Key"를 먼저 만들어서, 아래 버튼에서 제어하면 된다.
@@ -37,6 +48,44 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
+    /// 2023.08.15 Added. 현재 폴더 및 현재 파일명, 현재 클래스명 얻기.
+    // Future<Directory> getLocalDirectory() async {
+    //   return Platform.isAndroid ? await path.getTemporaryDirectory(): await path.getApplicationSupportDirectory();
+    // }
+
+    // Directory? dir = DownloadsPathProvider.downloadsDirectory;
+
+    // var currDir = getApplicationSupportDirectory();
+    // print("/HomePage.dart/currentDir: ${currentDir}");
+    // print("/HomePage.dart/currentDir: ${currDir.toString()}");
+    // functions
+    // 아래의 함수들을 통해 일반적인 앱이 접근하여 사용하는 저장공간에 해당하는 파일 시스템상의 위치 정보를 얻을 수 있다.
+
+    // getApplicationDocumentsDirectory()
+    // getApplicationSupportDirectory()
+    // getExternalCacheDirectories()
+    // getExternalStorageDirectories({StorageDirectory type })
+    // getExternalStorageDirectory()
+    // getLibraryDirectory()
+    // getTemporaryDirectory()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /// 2023.08.10 Added. /controller/PostController.java 파일에서 넘어온 자료를,
     /// 여기서 뿌려 줘야 하는데,
     ///
@@ -54,8 +103,6 @@ class HomePage extends StatelessWidget {
     ///    "관찰 가능한 변수" obs()를 선언하고, 그 변수에 자료를 담은 다음,
     ///
     ///    그리고는 실제 필요한 곳(ListView)에서, Obx(()=>ListView()) 안에서 처리하게 한다.
-
-    print("/HomePage.dart/scaffoldKey: ${scaffoldKey}");
 
     return Scaffold(
 

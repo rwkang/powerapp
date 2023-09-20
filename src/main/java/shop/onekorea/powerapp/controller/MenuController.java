@@ -17,10 +17,11 @@ public class MenuController {
 
     @Autowired private MenuService menuService;
 
-    @GetMapping("/search/{userId}")
-    public ResponseDto<List<MenuEntity>> doGetSearchList(@PathVariable("userId") String userId) {
+    @GetMapping("/search/{userid}")
+    public ResponseDto<List<MenuEntity>> doGetSearchList(@PathVariable("userid") String userid) {
+        System.out.println("MenuController.java.userid: ${userid}");
 
-        return menuService.serviceGetSearchList(userId);
+        return menuService.serviceGetSearchList(userid);
 
     }
 

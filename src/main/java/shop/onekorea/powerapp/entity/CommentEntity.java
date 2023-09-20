@@ -19,7 +19,8 @@ public class CommentEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int boardId;
-    private int userEmail;
+//    private int userEmail;
+    private int userUserid;
     private String commentProfile;
     private String commentNickname;
     private String content;

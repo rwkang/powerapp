@@ -20,7 +20,7 @@ import java.util.Date;
 public class MenuEntity {
     @Id // 바로 아래 컬럼을 "PRIMARY KEY"로 설정.
     private String code;
-    private String userId;
+    private String userid;
     private String language1;
     private String language2;
     private String language3;
@@ -29,16 +29,16 @@ public class MenuEntity {
     private String winName;
     private String winParam;
     private int isAccess;
-    private String updatedUserId;
+    private String updatedUserid;
     private Date updated;
-    private String createdUserId;
+    private String createdUserid;
     private Date created;
 
 //    Date date = new Date();
 
     public MenuEntity(MenuRequestDto menuRequestDto) {
         this.code = menuRequestDto.getCode();
-        this.userId = menuRequestDto.getUserId();
+        this.userid = menuRequestDto.getUserid();
         this.language1 = menuRequestDto.getLanguage1();
         this.language2 = menuRequestDto.getLanguage2();
         this.language3 = menuRequestDto.getLanguage3();
@@ -47,9 +47,9 @@ public class MenuEntity {
         this.winName = menuRequestDto.getWinName();
         this.winParam = menuRequestDto.getWinParam();
         this.isAccess = menuRequestDto.getIsAccess();
-        this.updatedUserId = menuRequestDto.getUpdatedUserId();
+        this.updatedUserid = menuRequestDto.getUpdatedUserid();
         this.updated = new Date();
-        this.createdUserId = menuRequestDto.getCreatedUserId();
+        this.createdUserid = menuRequestDto.getCreatedUserid();
         this.updated = new Date();
     }
 

@@ -1,4 +1,4 @@
-package shop.onekorea.powerapp.filter;
+package shop.onekorea.powerapp.filter.jwt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AbstractAuthenticationToken;
@@ -30,8 +30,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
-        try {
+        System.out.println("===> JwtAuthenticationFilter.java.doFilterInternal.parseBearerToken(request): " + parseBearerToken(request));
 
+
+        try {
 
             String token = parseBearerToken(request);
 
@@ -51,9 +53,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 SecurityContextHolder.setContext(securityContext);
 
 
+            } else {
+                System.out.println("===> JwtAuthenticationFilter.java.doFilterInternal.parseBearerToken(request)이 없어, 시스템을 사용할 수 없습니다. 먼저 로그인하시오!!!");
+
             }
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("===> JwtAuthenticationFilter.java.doFilterInternal()에서 치명적 에러 발생!!!");
         }
 
         filterChain.doFilter(request, response);
@@ -64,9 +70,19 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private String parseBearerToken(HttpServletRequest request) {
         String bearerToken = request.getHeader("Authorization");
         if (StringUtils.hasText(bearerToken) && bearerToken.startsWith("Bearer ")) { // 반드시 맨 끝 띄어쓰기, 공란" "도 꼭 넣어 주어야 한다.
+            System.out.println("===> JwtAuthenticationFilter.java.parseBearerToken().bearerToken: " + bearerToken);
+
             return bearerToken.substring(7); // Bearer Token의 7자리를 제거하고, 제거된 String
+        } else {
+
+            /// 2023.08.27 Added. java Spring Boot 서버만 실행하고, 브라우져에서 직접 요청을 테스트하기 위해,
+            /// 임시로 값을 넣어 줘 본다.
+//            bearerToken = "dafdsalfdslfsa.fsafas.fsadfjasd";
+//            return bearerToken;
+            return null;
+
         }
-        return null;
+
     }
 
 }

@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class MenuRequestDto { // 회원 가입
 
     private String code;
-    private String userId;
+    private String userid;
     private String menu1;
     private String menu2;
     private String menu3;
@@ -23,7 +23,7 @@ public class MenuRequestDto { // 회원 가입
     private String winName;
     private String winParam;
     private int isAccess;
-    private String updatedUserId; // 이게 여기 DTO에서 필요한가???
-    private String createdUserId; // 이게 여기 DTO에서 필요한가???
+    private String updatedUserid; // 이게 여기 DTO에서 필요한가???
+    private String createdUserid; // 이게 여기 DTO에서 필요한가???
 
 }

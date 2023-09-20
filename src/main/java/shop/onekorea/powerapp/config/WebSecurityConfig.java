@@ -1,4 +1,4 @@
-package shop.onekorea.PowerApp.config;
+package shop.onekorea.powerapp.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -8,7 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import shop.onekorea.powerapp.filter.JwtAuthenticationFilter;
+import shop.onekorea.powerapp.filter.jwt.JwtAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -19,6 +19,7 @@ public class WebSecurityConfig {
 
     @Bean
     protected SecurityFilterChain configure(HttpSecurity httpSecurity) throws Exception {
+        System.out.println("=====> WebSecurityConfig.java.configure()...");
         httpSecurity
                 // CORS 정책: Cross Origin Resource Sharing (CORS): 현재 Application에서 기본 설정 했음
                 .cors().and()

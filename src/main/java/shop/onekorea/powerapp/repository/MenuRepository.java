@@ -10,6 +10,7 @@ public interface MenuRepository extends JpaRepository<MenuEntity, String> {
     // SELECT * FROM menu WHERE user_id =? ORDER BY user_id ASC;
     // public List<MenuEntity> existsByUserIdOrderByUserIdAndCode(String email);
 //    public List<MenuEntity> findByUserIdContainsOrderByUserIdAndCode(String email);
-    public List<MenuEntity> findByUserIdContainsOrderByUserId(String email);
+//    public List<MenuEntity> findByUserIdContainsOrderByUserId(String email);
+    public List<MenuEntity> findByUseridContainsOrderByUserid(String userid);
 
 }

@@ -23,19 +23,22 @@ public class MenuService {
 //    @Autowired PopularSearchRepository popularSearchRepository;
 
     // 2023.08.04 Added. 내 user_id 메뉴만 불러온다.
-    public ResponseDto<List<MenuEntity>> serviceGetSearchList(String email) {
+//    public ResponseDto<List<MenuEntity>> serviceGetSearchList(String email) {
+    public ResponseDto<List<MenuEntity>> serviceGetSearchList(String userid) {
 
         List<MenuEntity> menuList = new ArrayList<MenuEntity>();
         try {
             //menuList = menuRepository.existsByUserIdOrderByUserIdAndCode(email);
 //            menuList = menuRepository.findByUserIdContainsOrderByUserIdAndCode(email);
-            menuList = menuRepository.findByUserIdContainsOrderByUserId(email);
+//            menuList = menuRepository.findByUserIdContainsOrderByUserId(email);
+            menuList = menuRepository.findByUseridContainsOrderByUserid(userid);
 
         } catch (Exception e) {
             e.printStackTrace();
             return ResponseDto.setFailed("Database Error");
         }
 
+        System.out.println("MenuController.java.menuList: ${menuList}");
         return ResponseDto.setSuccess("성공!!!", menuList);
 
     }

@@ -11,8 +11,10 @@ import javax.validation.constraints.NotBlank;
 @NoArgsConstructor
 public class SignInRequestDto {
 
+//    private String email;
     @NotBlank
-    private String email;
+    private String userid;
+
     @NotBlank
     private String password;
 

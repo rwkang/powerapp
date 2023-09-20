@@ -1,5 +1,6 @@
 package shop.onekorea.powerapp.controller;
 
+//import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import shop.onekorea.powerapp.dto.ResponseDto;
@@ -31,6 +32,8 @@ public class AuthController {
         // 2. 직접 class에서 처리하는 방식이 있다.
 
         ResponseDto<?> result = authService.serviceSighUp(requestBody);
+
+        System.out.println("=====> AuthController.java.signUp: " + requestBody.toString());
 
         return result;
     }
